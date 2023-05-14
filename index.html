@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="5; URL=goer://forgotpassword">
+  <title>Redirecting...</title>
+</head>
+<body>
+  <h1>Redirecting...</h1>
+  <p>If you are not redirected automatically, <a href="goer://forgotpassword">click here</a>.</p>
+
+  <script>
+    // Optional script to display a countdown before redirecting
+    var countdown = 5; // Number of seconds to wait before redirecting
+    var countdownElement = document.getElementById('countdown');
+
+    function updateCountdown() {
+      countdown--;
+      countdownElement.textContent = countdown;
+
+      if (countdown <= 0) {
+        window.location.href = 'goer://forgotpassword';
+      } else {
+        setTimeout(updateCountdown, 1000); // Update every second
+      }
+    }
+
+    // Start the countdown
+    setTimeout(updateCountdown, 1000);
+  </script>
+</body>
+</html>
