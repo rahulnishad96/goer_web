@@ -1,32 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="5; URL=goer://forgotpassword">
-  <title>Redirecting...</title>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('token');
+    function redirectToDifferentURL() {
+      const redirectURL = 'goer://forgotpassword?token=' + id;
+      window.location.href = redirectURL;
+    }
+    window.onload = redirectToDifferentURL;
+  </script>
 </head>
 <body>
-  <h1>Redirecting...</h1>
-  <p>If you are not redirected automatically, <a href="goer://forgotpassword">click here</a>.</p>
-
-  <script>
-    // Optional script to display a countdown before redirecting
-    var countdown = 5; // Number of seconds to wait before redirecting
-    var countdownElement = document.getElementById('countdown');
-
-    function updateCountdown() {
-      countdown--;
-      countdownElement.textContent = countdown;
-
-      if (countdown <= 0) {
-        window.location.href = 'goer://forgotpassword';
-      } else {
-        setTimeout(updateCountdown, 1000); // Update every second
-      }
-    }
-
-    // Start the countdown
-    setTimeout(updateCountdown, 1000);
-  </script>
+  <div style="display: flex; align-items: center; justify-content: center; height: 100%; width: 100%;">
+    <h1 style="margin: auto; text-align: center;">Redirecting...</h1>
+  </div>
 </body>
 </html>
